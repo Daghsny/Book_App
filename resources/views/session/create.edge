@@ -1,0 +1,49 @@
+@layout('layouts/default_no_nav')
+
+@section('content')
+
+
+<section class="section is-medium">
+    <div class="container ">
+        <div class="card is-half ">
+            <div class="card-content ">
+                <div class="content  ">
+                    <form action="/login" method="post">
+
+                        {{-- Simple Version --}}
+                        {{-- <input type="email" name="email" />
+                        <input type="password " name="password" />
+                        <div><button type="submit">login ya bro!</button></div> --}}
+
+                        {{-- Luxe version --}}
+                        <label class="label"> <H1>LogIN Page</H1> </label>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" type="email" name="email" placeholder="Text input">
+                            </div>
+                            {{-- <p class="help">This is a help text</p> --}}
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control">
+                                <input class="input" type="password" name="password" placeholder="Text input">
+                            </div>
+                            {{-- <p class="help">This is a help text</p> --}}
+                        </div>
+                        <button type="submit" class="button is-info">LogIN</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+@endsection

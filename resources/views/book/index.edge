@@ -1,0 +1,66 @@
+@layout('layouts/default')
+
+@section('content')
+<section class="section">
+    <div class="container">
+        <br>
+        <h1 class="title">
+            Salamou Alikom
+        </h1>
+        <p class="subtitle has-text-primary">
+            This Dashbord for <strong class="has-text-primary-dark">DOT 28 </strong>!
+        </p>
+    </div>
+
+
+    @if(flashMessages.has('notification'))
+
+    <div class="notification is-warning">
+        {{flashMessages.get('notification')}}
+    </div>
+
+
+    @endif
+    <br>
+    <table class=" table is-striped is-fullwidth">
+        <thead>
+            <tr>
+                <th class="has-text-info">iD</th>
+                <th class="has-text-info">Book Title</th>
+                <th class="has-text-info">ISBN</th>
+                <div class="level-right">
+                    <p class="level-item">
+                        <th class="has-text-danger">Delete</th>
+                    </p>
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            @each(book in books)
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>
+                  <a href="{{route(('book.show'), [book.id])}}"  >
+                  {{--  const task = await Task.findOrFail(params.id);
+"/tasks/{{task.id}}"
+/books/show/:id
+    return view.render("tasks/show", { task });  --}}
+                    <div class="container">
+                        <h1 class="title">
+                            {{ book.title }} </h1>
+                        <p class="subtitle has-text-warning">{{ book.author }}</p>
+                    </div>
+                  </a>
+                </td>
+                <td>{{ book.isbn }}</td>
+                <td>
+                    <form action="/books/delete/{{book.id}}?_method=delete" method="post">
+                        <button class="delete is-medium is-danger"></button>
+                    </form>
+                </td>
+            </tr>
+            @endeach
+        </tbody>
+    </table>
+</section>
+@endsection

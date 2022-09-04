@@ -1,0 +1,78 @@
+@layout('layouts/default')
+
+@section('content')
+<section class="section is-medium">
+    <form action="/books" method="post">
+        <div class="field">
+            <label class="label">Title Zz</label>
+            <div class="control">
+                <input type="text" name="title" id="title"
+                    class="input {{ flashMessages.has('errors.title') ? 'is-danger' : '' }}"
+                    placeholder="What needs to be done?">
+                @if(flashMessages.has('errors.title'))
+                <p class="help is-sanger">
+                    {{flashMessages.get('errors.title')}}
+                </p>
+                @endif
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Author</label>
+            <div class="control">
+                <input type="text" name="author" id="author"
+                    class="input {{ flashMessages.has('errors.author') ? 'is-danger' : '' }}"
+                    placeholder="What needs to be done?">
+                @if(flashMessages.has('errors.title'))
+                <p class="help is-sanger">
+                    {{flashMessages.get('errors.title')}}
+                </p>
+                @endif
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Cover Image</label>
+            <div class="control">
+                <input type="text" name="cover_image" id="cover_image"
+                    class="input {{ flashMessages.has('errors.cover_image') ? 'is-danger' : '' }}"
+                    placeholder="What needs to be done?">
+                @if(flashMessages.has('errors.cover_image'))
+                <p class="help is-sanger">
+                    {{flashMessages.get('errors.cover_image')}}
+                </p>
+
+                @endif
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">ISBN</label>
+            <div class="control">
+                <input type="text" name="isbn" id="isbn"
+                    class="input {{ flashMessages.has('errors.cover_image') ? 'is-danger' : '' }}"
+                    placeholder="What needs to be done?">
+                @if(flashMessages.has('errors.isbn'))
+                <p class="help is-sanger">
+                    {{flashMessages.get('errors.isbn')}}
+                </p>
+
+                @endif
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-warning">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+</section>
+
+
+
+@endsection
